@@ -1,0 +1,72 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: blanchedalmond;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 500px;
+    background-color: #a7bebd;
+    border: solid black 3px;
+}
+
+.input {
+    margin: 10px auto;
+    width: 370px;
+    height: 100px;
+    background-color: rgb(105, 91, 155);
+    font-size: 40px;
+}
+
+.cancelations {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    margin: 30px auto;
+}
+
+.clear,
+.delete {
+    height: 50px;
+    width: 120px;
+    background-color: cornflowerblue;
+}
+
+.calculations {
+    display: flex;
+    margin: 10px;
+    gap: 10px;
+}
+
+.numbers,
+.operators {
+    margin: 3px;
+}
+button {
+    height: 50px;
+    width: 80px;
+    font-size: 20px;
+    font-family: xenara;
+}
+
+.number {
+    background-color: aqua;
+    margin: 3px;
+}
+
+.dot {
+    background-color: aquamarine;
+    margin: 3px;
+}
+
+.operator {
+    background-color: rgb(96, 202, 202);
+    margin: 3px;
+}
+
