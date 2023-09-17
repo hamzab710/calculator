@@ -22,3 +22,23 @@ function operate(operator, a, b) {
     else if (operator == "/") return divide(a, b);
     else return "Invalid operator"
 }
+
+function displayNumbers (event) {
+    const buttonText = event.target.getAttribute('data-text');
+    const existingNumber = document.querySelector('p');
+    const displayElement = document.querySelector('.display');
+    if (existingNumber) {
+        existingNumber.textContent += buttonText
+    } else {
+        const number = document.createElement('p');
+        number.textContent = buttonText;
+        displayElement.appendChild(number);
+    }
+}
+
+let displayed = document.querySelectorAll('.displayed');
+
+displayed.forEach(function(element) {
+    element.addEventListener('click', displayNumbers);
+});
+
