@@ -22,17 +22,19 @@ function operate(operator, a, b) {
     else if (operator == "/") return divide(a, b);
     else return "Invalid operator"
 }
-
+let latestInput;
 function displayNumbers (event) {
     const buttonText = event.target.getAttribute('data-text');
-    const existingNumber = document.querySelector('p');
+    latestInput = document.querySelector('p');
     const displayElement = document.querySelector('.display');
-    if (existingNumber) {
-        existingNumber.textContent += buttonText
+    if (latestInput) {
+        latestInput.textContent += buttonText;
+        latestInput.classList.add('.firstNumber');
     } else {
-        const number = document.createElement('p');
-        number.textContent = buttonText;
-        displayElement.appendChild(number);
+        let input = document.createElement('p');
+        input.textContent = buttonText;
+        input.classList.add('.firstNumber');
+        displayElement.appendChild(input);
     }
 }
 
@@ -40,5 +42,17 @@ let displayed = document.querySelectorAll('.displayed');
 
 displayed.forEach(function(element) {
     element.addEventListener('click', displayNumbers);
+});
+
+let storedNumber;
+function storeNumbers() {
+    storedNumber = parseInt(latestInput.textContent);
+    latestInput.parentNode.removeChild(latestInput);
+}
+
+let operator = document.querySelectorAll('.operator');
+
+operator.forEach(function(element) {
+    element.addEventListener('click', storeNumbers);
 });
 
