@@ -65,6 +65,7 @@ let operatorButtons = document.querySelectorAll('.operator');
 
 operatorButtons.forEach(button => {
     button.addEventListener('click', () => {
+        decimal.disabled = false;
         if (!resultCalculated) {
             if (waitingForSecondNumber) {
                 // If a second operator is clicked before calculating,
@@ -97,6 +98,12 @@ function calculateResult() {
         secondNumber = null;
         waitingForSecondNumber = false;
         resultCalculated = true;
+        if (displayElement.textContent.includes('.')) {
+            // Disable the decimal button
+            decimal.disabled = true;
+        } else {
+            decimal.disabled = false;
+        }
     }
 }
 
@@ -109,6 +116,7 @@ function clearAll() {
     secondNumber = null;
     waitingForSecondNumber = false;
     resultCalculated = false;
+    decimal.disabled = false;
 }
 
 let clear = document.querySelector('.clear');
@@ -127,8 +135,29 @@ function deleteNum() {
         firstNumber = firstNumber.slice(0 , -1);
         displayElement.textContent = firstNumber;
     }
+    if (displayElement.textContent.includes('.')) {
+        // Disable the decimal button
+        decimal.disabled = true;
+    } else {
+        decimal.disabled = false;
+    }
 };
 
 let cancel = document.querySelector('.delete');
 
 cancel.addEventListener('click', deleteNum);
+
+// disable dot button if it is displayed not after using it
+
+let decimal = document.querySelector('.dot');
+
+decimal.addEventListener('click', disableDecimal);
+
+function disableDecimal() {
+    // Check if you should disable the decimal button
+    const displayElement = document.querySelector('.display');
+    if (displayElement.textContent.includes('.')) {
+        // Disable the decimal button
+        decimal.disabled = true;
+    }
+}
