@@ -51,6 +51,13 @@ function displayNumbers(event) {
         }
         secondNumber += buttonText;
         displayElement.textContent = secondNumber;
+        if (displayElement.textContent.includes('.')) {
+            // Disable the decimal button
+            decimal.disabled = true;
+        } else {
+            // Enable the decimal button
+            decimal.disabled = false;
+        }
     } else {
         // First number input
         if (firstNumber === null) {
@@ -139,6 +146,7 @@ function deleteNum() {
         // Disable the decimal button
         decimal.disabled = true;
     } else {
+        // Enable the decimal button
         decimal.disabled = false;
     }
 };
@@ -146,8 +154,6 @@ function deleteNum() {
 let cancel = document.querySelector('.delete');
 
 cancel.addEventListener('click', deleteNum);
-
-// disable dot button if it is displayed not after using it
 
 let decimal = document.querySelector('.dot');
 
@@ -161,3 +167,20 @@ function disableDecimal() {
         decimal.disabled = true;
     }
 }
+
+// Function to trigger the button click event
+function handleKeyPress(event) {
+    const keyPressed = event.key;
+  
+    const buttons = document.querySelectorAll('.displayed');
+    buttons.forEach((button) => {
+      const buttonText = button.getAttribute('data-text');
+      
+      // Check if the pressed key matches the button's data-text
+      if (keyPressed === buttonText) {
+        button.click();
+      }
+    });
+}
+  
+  document.addEventListener("keydown", handleKeyPress);
