@@ -174,13 +174,44 @@ function handleKeyPress(event) {
   
     const buttons = document.querySelectorAll('.displayed');
     buttons.forEach((button) => {
-      const buttonText = button.getAttribute('data-text');
+        const buttonText = button.getAttribute('data-text');
       
-      // Check if the pressed key matches the button's data-text
-      if (keyPressed === buttonText) {
-        button.click();
-      }
+        // Check if the pressed key matches the button's data-text
+        if (keyPressed === buttonText) {
+            button.click();
+        }
     });
+  
+    const operatorButtons = document.querySelectorAll('.operator');
+    operatorButtons.forEach((button) => {
+        const operatorText = button.getAttribute('data-text');
+      
+        // Check if the pressed key matches the operator button's data-text
+        if (keyPressed === operatorText) {
+            button.click();
+        }
+    });
+
+    const equal = document.querySelector('.equal');
+    const equalText = equal.getAttribute('data-text');
+
+    if (keyPressed === equalText) {
+        equal.click();
+    }
+
+    const clear = document.querySelector('.clear');
+    const clearText = clear.getAttribute('data-text');
+
+    if (keyPressed === clearText) {
+        clear.click();
+    }
+
+    const cancel = document.querySelector('.delete');
+    const cancelText = cancel.getAttribute('data-text');
+
+    if (keyPressed === cancelText) {
+        cancel.click();
+    }
 }
   
-  document.addEventListener("keydown", handleKeyPress);
+document.addEventListener("keydown", handleKeyPress);
