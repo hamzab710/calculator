@@ -9,37 +9,48 @@
     <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
-    <div class="container">
-        <div class="display"></div>
-        <div class="buttons">
-            <div class="cancelations">
-                <button class="clear" data-text="Escape">Clear</button>
-                <button class="delete" data-text="Backspace">Delete</button>
-            </div>
-            <div class="calculations">
-                <div class="numbers">
-                    <button class="number displayed" data-text="1">1</button>
-                    <button class="number displayed" data-text="2">2</button>
-                    <button class="number displayed" data-text="3">3</button>
-                    <button class="number displayed" data-text="5">5</button>
-                    <button class="number displayed" data-text="4">4</button>
-                    <button class="number displayed" data-text="6">6</button>
-                    <button class="number displayed" data-text="7">7</button>
-                    <button class="number displayed" data-text="8">8</button>
-                    <button class="number displayed" data-text="9">9</button>
-                    <button class="number displayed" data-text="0">0</button>
-                    <button class="dot displayed" data-text=".">.</button>
-                    <button class="equal" data-text="=">=</button>
+    <main>
+        <div class="container">
+            <div class="display"></div>
+            <div class="buttons">
+                <div class="cancelations">
+                    <button class="clear not-displayed" data-text="Escape">Clear</button>
+                    <button class="delete not-displayed" data-text="Backspace">Delete</button>
                 </div>
-                <div class="operators">
-                    <button class="operator" data-operator="+" data-text="+">+</button>
-                    <button class="operator" data-operator="-" data-text="-">-</button>
-                    <button class="operator" data-operator="*" data-text="*">*</button>
-                    <button class="operator" data-operator="/" data-text="/">/</button>
+                <div class="calculations">
+                    <div class="numbers">
+                        <button class="number displayed" data-text="1">1</button>
+                        <button class="number displayed" data-text="2">2</button>
+                        <button class="number displayed" data-text="3">3</button>
+                        <button class="number displayed" data-text="5">5</button>
+                        <button class="number displayed" data-text="4">4</button>
+                        <button class="number displayed" data-text="6">6</button>
+                        <button class="number displayed" data-text="7">7</button>
+                        <button class="number displayed" data-text="8">8</button>
+                        <button class="number displayed" data-text="9">9</button>
+                        <button class="number displayed" data-text="0">0</button>
+                        <button class="dot displayed" data-text=".">.</button>
+                        <button class="equal not-displayed" data-text="=">=</button>
+                    </div>
+                    <div class="operators">
+                        <button class="operator not-displayed" data-operator="+" data-text="+">+</button>
+                        <button class="operator not-displayed" data-operator="-" data-text="-">-</button>
+                        <button class="operator not-displayed" data-operator="*" data-text="*">*</button>
+                        <button class="operator not-displayed" data-operator="/" data-text="/">/</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
+    <footer class="footer">
+        <p>
+          Copyright ©
+          <script>
+            document.write(new Date().getFullYear())
+          </script>
+          hamzab710
+        <a href="https://github.com/hamzab710"><img src="images/github-icon.png" alt="Github Icon" class="git-icon"></a></p>
+      </footer>
     <script src="script.js"></script>
 </body>
 </html>
